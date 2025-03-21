@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Documents | Request #{{ request_id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3>Documents for Request #{{ request_id }}</h3>
+        <ul>
+            {% for file in files %}
+                <li><a href="{{ url_for('static', filename='uploads/' + file.filename) }}" target="_blank">{{ file.filename }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="/admin_dashboard" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</body>
+</html>
